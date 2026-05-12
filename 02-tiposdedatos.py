@@ -45,6 +45,10 @@ print(CADENA DE TEXTO)
 carrera = "Ingenieria civil en informatica"
 institucion = "Universidad de los lagos"
 
+#METODO SPLIT
+print(carrera.split()) #se para la cadena en subcadena (se genera una lista)
+print(institucion.split())
+
 #IMPRIMIR LA POCISION DEL CARACTER
 print(carrera[0]) #se imprime la primera letra
 print(carrera[-1]) #se imprime la ultima letra
@@ -67,3 +71,30 @@ print(numerico[-1]) #se imprime el ultimo elemento de la lista numeros
 # las "," separan los elementos dentros de la lista
 # /n es un salto de linea
 #La cadena de texto es solo informacion no es una lista
+#argumentos son elementos que van dentro
+#str = string
+#bool = logico
+#float = flotante
+
+
+#BOOLEANO(LOGICO)
+luz_electrica = True
+interruptor  = False
+print("booleanos")
+print(luz_electrica)
+print(interruptor)
+
+print(f"el tipo de dato es (type(num_complejo))")
+
+#los booleanos solo pueden tener verdadero y falso
+
+print("evaluando datos booleanos")
+print(bool(1))
+print(bool(0))
+print(bool(""))
+print(bool("true"))
+print(bool(4000))
+#transformando el string a booleano
+
+#booleano es cero o uno
+
