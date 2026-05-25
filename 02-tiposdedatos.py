@@ -44,6 +44,7 @@ print(float(edad))
 print(CADENA DE TEXTO)
 carrera = "Ingenieria civil en informatica"
 institucion = "Universidad de los lagos"
+descripcion =
 
 #METODO SPLIT
 print(carrera.split()) #se para la cadena en subcadena (se genera una lista)
@@ -98,3 +99,7 @@ print(bool(4000))
 
 #booleano es cero o uno
 
+#Evaluando números con operadores de comparación
+print(100>50)
+print(10==10)
+print(20<0)
