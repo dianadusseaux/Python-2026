@@ -23,7 +23,7 @@ consumo_noche = ram[3]
 
 consumo = consumo_manana + consumo_mediodia + consumo_tarde + consumo_noche
 
-promedio = consumo / 4
+promedio = consumo / len(ram)
 print(f"El promedio de consumo de ram durante el dia es de {promedio}")
 ram_maxima = max(ram)
 ram_minima = min(ram)
