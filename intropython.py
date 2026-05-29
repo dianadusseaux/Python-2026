@@ -24,3 +24,4 @@ FinAlgoritmo
 temperatura_c = input("usuario ingrese la temperatura en grados celsius para transformar a fahrenheit")
 fahrenheit = (float(temperatura_c) * 1.8) + 32
 print(f"la temperatura es: , {fahrenheit} la cual equivale a la temperatura anterior en celsius que era{temperatura_c}")
+
