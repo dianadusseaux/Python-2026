@@ -12,7 +12,7 @@ estudiando = True #(true/false)
 #NÚMEROS COMPLEJOS
 #Son los que contienen una parte de numero real y otra de imaginario  se utiliza la palabra complex para numeros complejos 
 num_complejo = 4+2j #primera forma de crear un numero complejo
-otro_complejo = complex(4..2) #segunda forma de crear un numero complejo
+otro_complejo = complex(4..2)  #segunda forma de crear un numero complejo
 
 
 int
