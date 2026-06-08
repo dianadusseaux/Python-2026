@@ -16,7 +16,7 @@ print(type(lista1))
 #01-COUNT() contar las cantidad de concurrencias de un elemento
 print(lista1.count("diana"))
 
-print(lista[0]) #estoy imprimiendo el primer orden de la lista
+print(lista1[0]) #estoy imprimiendo el primer orden de la lista
 
 print(ramos)
 
