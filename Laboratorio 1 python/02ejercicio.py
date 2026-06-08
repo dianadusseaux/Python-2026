@@ -1,4 +1,4 @@
-codigo_identificador = input("Estudiante ingrese el codigo verificador por favor" )
+codigo_identificador = input("Estudiante ingrese el codigo verificador por favor: ")
 
 codigo_identificador = codigo_identificador.strip()
 
