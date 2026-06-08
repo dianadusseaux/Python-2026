@@ -62,3 +62,5 @@ ramos_segundo_semestre = ["ciudadania", "algebra", "introducción a la fisica"]
 print(ramos_segundo_semestre)
 print(ramos)
 
+#Aplicando metodo index
+print(ramos_segundo_semestre.index("algebra"))
