@@ -87,3 +87,27 @@ print(medico2)
 medico2.clear()
 print(medico2) # ->{}
 
+#el diccionario siempre es un par clave, valor 
+
+#controles = {} esto es un diccionario vacio
+
+#para indentar son 4 espacios
+
+#funciones con datos iterables ej: map(funcion,iterable)
+#funcion join sirve para unir 
+
+n = [1, 2, 3, 4, 5] #la funcion map sirve para reemplazar un for
+n_str = list(map(str,n))
+print(f"Lista de numeros como strings: {",".join(n_str)}")
+
+filter() #sirve para filtrar
+lambda #es una función directa
+zip() #toma 2 o mas iterables y los combina en un solo iterable de tuplas(siempre los va a transformar en una tupla)
+
+#metodos para datos iterables
+#01-funcion_zip
+a = [1, 2, 3, 4, 5]
+b = ["A", "B", "C", "D"]
+
+comprimir = list(zip(a,b))
+
