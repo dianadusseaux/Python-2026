@@ -34,7 +34,7 @@ Dependiendo del estado de cada variable, se irá cambiando por False o True.
 #variables booleanas
 bencina = True
 encendido = True
-#edad = 19
+edad = 19
 
 #if = si
 #else = sino
@@ -52,4 +52,21 @@ else:
     print("El vehiculo no puede arrancar")
 
 
+#Utilizando el operador NOT junto and AND
+if not bencina and encendido:    # --> utilizando not estoy negando a bencina
+    print("El vehiculo puede arrancar")
+else:
+    print("El vehiculo no puede arrancar")
+
+#Utilizando el operador NOT junto and OR
+if not bencina or encendido:
+    print("El vehiculo puede arrancar")
+else:
+    print("El vehiculo no puede arrancar")
+
+#Utilizando el operador NOT junto al operador AND y OR
+if(not bencina or encendido) or (encendido and edad >= 18) :
+    print("El vehiculo puede arrancar")
+else:
+    print("El vehciculo no puede arrancar")
 
