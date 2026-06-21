@@ -78,10 +78,10 @@ len(alumno) #sirve parq contar tambien el diccionario
 #asignando variable
 nombre = "estefania"
 #condicional
-if nombre == "diana" #if --> si(condicional) |":"|--> entonces ! se lee = si(la condición es verdadera) entonces se va a ejecutar...
+if nombre == "diana": #if --> si(condicional) |":"|--> entonces ! se lee = si(la condición es verdadera) entonces se va a ejecutar...
     print("es correcto")
     #condicional descartador pero con especificación de condición 
-elif nombre == "estefania" #elif --> combinación entre(else <--> if)! else = sino ! if = si ! se lee = sino si...
+elif nombre == "estefania": #elif --> combinación entre(else <--> if)! else = sino ! if = si ! se lee = sino si...
     print("no es diana pero si estefania")
     #condicional descartador
 else:                 #else ---> sino ! se lee = sino entonces...
@@ -92,7 +92,7 @@ else:                 #else ---> sino ! se lee = sino entonces...
 #pass se utiliza para continuar si no se encuentra nada
 
 estado = True
-while estado == True #while es --> mientras
+while estado == True: #while es --> mientras
    respuesta = str(input("usuario ¿desea agregar un estudiante al diccionario 'estudiantes'? (s/n): "))
    if respuesta == "s":
         nombre_estudiante = str(input("Ingrese el nombre del estudiante que quiere agregar: "))
@@ -102,5 +102,85 @@ while estado == True #while es --> mientras
        estado = False
    else:
        print("la opcion indicada no es correcta, recuerde escribir o 's' para si o 'n' para no.")
+
+#Paso de pseint a Python
+
+#PSEINT | PYTHON
+
+# si --> if
+#sino si --> si no se cumple especificamente el condicional anterior ejecutar 
+#condición --> con palabras reservadas en ingles y logicamente
+#entonces/hacer --> ':' (dos puntos)
+#else --> sino(osea que no se cumplen los casos anteriores o arrojan logicamente un 'falso')
+# y --> and(se deben cumplir ambas condiciones o las que yo separe con and)
+# o --> or(solo es necesario que minimamente se cumpla una condicion y se ejecutara)
+
+#Orden de jerarquia en condicionales
+#IF
+# |
+#ELIF
+# |
+#ELSE
+
+
+#Ejemplo simple de condicionales
+nombre = "Diana" #-->asignación/seteo variable
+
+#Uso condicionales
+
+if nombre == "Diana": # == --> comparación/equivalencia
+    print("El nombre es el correcto")
+else: #este 'sino' se ejecuta solamente si no se cumplen las condiciones que lo proceden
+    print("El nombre no es 'Diana'")
+
+"""
+Forma de leer ese ejemplo simple
+
+si la variable es 'Diana' entonces devolver en pantalla el mensaje:'el nombre es el correcto'
+
+si no se cumple exactamente la condición anterior devolver en pantalla el mensaje: 'El nombre NO es 'Diana''
+
+"""
+
+#Ejemplo comun condicional(elif)
+nombre = "Diana"
+
+if nombre == "Estefania": 
+    print("El nombre no es 'Estefania'")
+elif nombre == "Diana": # --> sino si (osea si no cumple el caso de arriba, verfica ahora este caso)
+    print("El nombre es 'Diana'")
+else: 
+    print("El nombre no es 'Diana'")
+
+#Ejemplo un poco mas complejo de condicional 1 (|=):
+nombre = "Diana"
+edad = 22
+
+if nombre == "Estefania": 
+    if edad!= 19: # != --> es lo contrario a ==
+        print("El sujeto se llama Diana y no tiene 19 años")
+else: 
+    print("El nombre no es 'Diana'")
+
+"""
+forma de leer un ejemplo un poco mas complejo:
+"""
+
+#4)Ejemplo un poco mas complejo
+
+#and --> ambos se deben cumplir si o si para ejecutarse
+#or --> almenos uno se debe cumplir para ejecutarse
+
+nombre = "Diana"
+edad = 22
+nacionalidad = "chilena"
+
+if nombre == "Estefania" and edad == 22:  
+    print("el nombre es correcto")
+elif nombre == "Diana" or nacionalidad == "chilena":
+    print("Es latina")
+else: 
+    print("El nombre no es 'Diana'")
+
 
 
