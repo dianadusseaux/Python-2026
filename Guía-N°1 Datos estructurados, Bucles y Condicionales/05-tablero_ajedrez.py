@@ -145,5 +145,8 @@ tablero[origen] = "."
 print(f"piezas capturadas{capturadas}")
 
 
-
+"""
+Javiera ojeda
+Diana Dusseaux
+"""
 
