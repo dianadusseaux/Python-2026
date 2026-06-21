@@ -12,3 +12,8 @@ for i in range(1, n + 1):
     operacion = " + ".join(secuencia)
     
     print(f"el cubo de {i} elevado a 3 es igual a la suma de {operacion} = {suma_fila}")
+
+"""
+Javiera ojeda 
+Diana Dusseaux
+"""
