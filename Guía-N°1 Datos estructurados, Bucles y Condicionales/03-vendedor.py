@@ -60,3 +60,9 @@ print(f"-------El sueldo de cada vendedor-------")
 print(f"El sueldo que le corresponde a Pedro es de: ${sueldo_pedro}")
 print(f"El sueldo que le corresponde a Juan es de: ${sueldo_juan}")
 print(f"El sueldo que le corresponde a Diego es de: ${sueldo_diego}")
+
+
+"""
+Javiera ojeda
+Diana Dusseaux
+"""
