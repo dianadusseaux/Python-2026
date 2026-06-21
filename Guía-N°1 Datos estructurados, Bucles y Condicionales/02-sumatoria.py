@@ -12,6 +12,10 @@ while num1 <= 800:
 print(f"La sumatoria total es: {suma_total}")
 
 
+"""
+Javiera ojeda
+Diana Dusseaux
+"""
 
 
 
