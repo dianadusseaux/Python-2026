@@ -10,3 +10,8 @@ if palabra in parrafo_nuevo:
     print(f"La palabra “{palabra}” se encuentra {parrafo_nuevo.count(palabra)} vez/veces")
 else:
     print("Esa palabra no esta en el texto")
+
+"""
+Javiera ojeda
+Diana Dusseaux
+"""
