@@ -115,38 +115,49 @@ def mostrar_tablero(): #creando funcion |1=def, 2=nombre_de_funcion():, 3=codigo
     print(f"  {columnas}  ")
 mostrar_tablero ()
 
-def procesar_movimiento(origen,destino,capturadas):
-    if origen not in tablero:
-        print("Error")
-        return
+def procesar_movimiento(origen, destino, capturadas):
+    if origen not in tablero or destino not in tablero:
+        print("-> Error, No existe")
+        return False
+
+    if tablero[origen] == ".":
+        print("-> Error, no hay piezas")
+        return False
+
+    pieza_origen = tablero[origen]
+    pieza_destino = tablero[destino]
+
+    if pieza_destino != ".":
+        capturadas.append(pieza_destino)
+        print(f"¡Capturó la pieza {pieza_destino} en {destino}!")
+
+    # Realizar el movimiento físico en el diccionario
+    tablero[destino] = pieza_origen
+    tablero[origen] = "."
+    return True
 
 
-#d)Interacción con el usuario
-
+# d) Interacción con el usuario
 capturadas = []
 
 while True:
     mostrar_tablero()
-    origen = input("Ingrese la casilla de origen o salir para terminar: ")
-    if origen.lower() == 'salir':break
-    destino = input("Ingrese la casilla de destino: ")
-procesar_movimiento(origen,destino,capturadas)
-
-pieza_origen = tablero[origen]
-pieza_destino = tablero[destino]
-
-if pieza_destino != ".":
-    capturadas.append(pieza_destino)
-print(f"¡Capturo a pieza {pieza_destino} en {destino}!")
-
-tablero[destino] = pieza_origen
-tablero[origen] = "."
-
-print(f"piezas capturadas{capturadas}")
+    origen = input("Ingrese la casilla de origen (o 'salir'): ").lower()
+    if origen == 'salir':
+        break
+        
+    destino = input("Ingrese la casilla de destino: ").lower()
+    
+    # Llamamos a la función DENTRO del ciclo para que ocurra en cada turno
+    movimiento_exitoso = procesar_movimiento(origen, destino, capturadas)
+    
+    if movimiento_exitoso:
+        print(f"Piezas capturadas hasta ahora: {capturadas}")
 
 
 """
 Javiera ojeda
 Diana Dusseaux
 """
+
 
