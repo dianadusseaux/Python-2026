@@ -12,11 +12,12 @@ estudiando = True #(true/false)
 #NÚMEROS COMPLEJOS
 #Son los que contienen una parte de numero real y otra de imaginario  se utiliza la palabra complex para numeros complejos 
 num_complejo = 4+2j #primera forma de crear un numero complejo
-otro_complejo = complex(4..2)  #segunda forma de crear un numero complejo
+otro_complejo = complex(4, 2)  #segunda forma de crear un numero complejo
 
-
-int
-float
+#int -->numero entero
+#float -->numero flotante
+#str = string
+#bool = logico
 
 #OPERACION ARITMETICA BAASICA(AREA DE UN TRIANGULO)
 base = 8
@@ -26,22 +27,28 @@ area = (base*altura)/2
 
 print(f"el area del triangulo es de {area} cm")
 
+#utilizando input
+input("usuario ingrese el valor de la base") # input se utiliza para solicitar al usuario que ingrese por consola
+
+#utilizando input restringiendo que sea numero flotante
+(float(input("usuario ingrese el valor de la base")))
+
+
+#Salida del numero PI con dos decimales
+print(f"El numero PI tiene un valor de {3.14159: .2f}")
 #FORMATO DE SALIDAS DE NUMEROS
 #f es por flotante
 #2 es por la cantidad de decimales
 
-#Salida del numero PI con dos decimales
-print(f"El numero PI tiene un valor de {PI: .2f}")
-
 #EL METODO REDONDEO
 print(round(area))
-print(round(PI, 3))
+print(round(3.14159, 3)) # se le solicita imprimir el valor con 3 decimales
 
 #TRANSFORMACIONES
-print(float(edad))
+print(float(edad)) # se solicita convertir la variable edad en numero flotante
 
 #CADENAS DE TEXTOS
-print(CADENA DE TEXTO)
+print("---CADENA DE TEXTO---")
 carrera = "Ingenieria civil en informatica"
 institucion = "Universidad de los lagos"
 
@@ -66,16 +73,12 @@ numeros =[1,2,3,4,5,6] #arreglo numerico
 lista_mixta = ["gato" , 2 , 67.0 , "true"]
 
 print(colores[0]) #se imprime el primer elemento de la lista colores
-print(numerico[-1]) #se imprime el ultimo elemento de la lista numeros 
+print(numeros[-1]) #se imprime el ultimo elemento de la lista numeros 
 
 # las "," separan los elementos dentros de la lista
 # /n es un salto de linea
 #La cadena de texto es solo informacion no es una lista
 #argumentos son elementos que van dentro
-#str = string
-#bool = logico
-#float = flotante
-
 
 #BOOLEANO(LOGICO)
 luz_electrica = True
