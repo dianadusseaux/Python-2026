@@ -90,7 +90,8 @@ print(Fore.MAGENTA + "\n3° Bucle For")
 #Iterando de una tercera forma (3°FOR)
 for i in range(1,101):
     print(i)
-#range ==> Metodo rango ahorrando crear una lista
+
+
 
 
 
