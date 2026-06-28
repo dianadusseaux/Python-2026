@@ -15,7 +15,7 @@ paciente = {
 
 # Segunda forma de declarar diccionario
 medico = dict(
-    nombre = "Aaaaaa",
+    nombre = "Diana",
     edad = 21,
     especialidad = "Cardiologo"
 )
