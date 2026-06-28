@@ -6,7 +6,7 @@ edad=22
 #NÚMEROS FLOTANTES(REALES)
 estatura=1.58
 
-#BOOLIANO
+#BOOLEANO
 estudiando = True #(true/false)
 
 #NÚMEROS COMPLEJOS
