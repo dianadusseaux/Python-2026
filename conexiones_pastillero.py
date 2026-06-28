@@ -9,6 +9,7 @@ import urequests #herramienta para enviar el mensaje por internet
 
 hall_sensor = Pin(34, Pin.IN, Pin.PULL_UP) # Configuración de Pin 34 para leer el sensor magnético de la tapa (1=Abierto, 0=Cerrado)
 
+boton_silencio = Pin(15, Pin.IN, Pin.PULL_UP)
 
 buzzer = PWM(Pin(25), freq=1000, duty=0)# Configuracion de Pin 25 para el Buzzer, con tono de 1000Hz y volumen inicial en 0 (apagado)
 
@@ -50,8 +51,8 @@ conectar_wifi()
 def enviar_mensaje_real():
 
     numero = "+56912345678" # Número del cuidador
-    api_key = "123456" # Clave secreta que te da la página de CallMeBot      
-    texto = "EMERGENCIA:+El+paciente+NO+consumio+su+pastilla+a+tiempo."
+    api_key = "123456" # Clave secreta que te da la página de CallMeBot       
+    texto = "EMERGENCIA:+El+paciente+no+consumio+su+pastilla."
     url = f"https://api.callmebot.com/whatsapp.php?phone={numero}&text={texto}&apikey={api_key}" #el enlace completo
     
     try:
@@ -70,11 +71,12 @@ rtc.datetime((2026, 6, 22, 0, 7, 29, 50, 0))# Fijamos una hora prueba: Día Lune
 alarma_activa = False   # ¿Estamos en la media hora de espera?
 pastilla_tomada = False # sirve si se abrió la tapa
 sms_enviado = False     # Evita mandar muchos mensajes seguidos
+alarma_silenciada = False
 
 nombres_dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"]
 
-horas_dosis = [8, 12, 16]# Las horas exactas donde debe tomar la pastilla
-horas_pre = [7, 11, 15]# Las horas donde da el aviso preventivo de "faltan 30 minutos"
+horas_dosis = [0, 8, 16]# Las horas exactas donde debe tomar la pastilla
+horas_pre = [23, 7, 15]# Las horas donde da el aviso preventivo de "faltan 30 minutos"
 
 # Borramos pantalla y damos mensaje de bienvenida al encender
 display.fill(0) 
@@ -87,6 +89,7 @@ while True:
     
     _, _, _, dia_semana, hora, minuto, segundo, _ = rtc.datetime()
     estado_tapa = hall_sensor.value() # Leemos si la tapa está abierta (1) o cerrada (0)
+    estado_boton = boton_silencio.value()
     
     display.fill(0)# Borramos la pantalla nueva imagen
     
@@ -109,8 +112,12 @@ while True:
         alarma_activa = True    # Activamos la espera
         pastilla_tomada = False # Reseteamos el intento
         sms_enviado = False     # Reseteamos el bloqueo de SMS
+        alarma_silenciada = False
 
     sonando_principal = (hora in horas_dosis and minuto == 0 and segundo < 15)# Variable correcta durante 15 segundos de la hora
+
+    if estado_boton == 0 and alarma_activa == True:
+        alarma_silenciada = True
 
     # Si la tapa se abre (1) y la alarma está esperando (True)...
     if estado_tapa == 1 and alarma_activa == True:
@@ -129,15 +136,21 @@ while True:
             sms_enviado = True # Bloqueamos para que no envíe mensajes
 
     if alarma_activa and sonando_principal and not pastilla_tomada:   # Estado 1: Sonando fuerte (Primeros 15 segundos)
-        if segundo % 2 == 0:  
-            leds[dia_semana].value(1)
-            buzzer.duty(512)
+        if not alarma_silenciada:
+            if segundo % 2 == 0:  
+                leds[dia_semana].value(1)
+                buzzer.duty(512)
+            else:
+                leds[dia_semana].value(0)
+                buzzer.duty(0)
+                
+            display.text("HORA DE DOSIS", 5, 0)  # Fila de arriba
+            display.text("Abra la tapa", 15, 15)   # Fila de abajo
         else:
             leds[dia_semana].value(0)
             buzzer.duty(0)
-            
-        display.text("HORA DE DOSIS", 5, 0)  # Fila de arriba
-        display.text("Abra la tapa", 15, 15)   # Fila de abajo
+            display.text("SILENCIADO", 25, 0)
+            display.text("Abra la tapa", 15, 15)
 
     elif alarma_activa and not sonando_principal and not pastilla_tomada:# Estado 2: Alarma silenciosa esperando que abra (Hasta los 30 min)
         leds[dia_semana].value(0) # Mantenemos luz apagada
@@ -160,12 +173,10 @@ while True:
         # Calculamos lógicamente qué hora será el próximo aviso
         if hora < 8:
             display.text("Prox: 08:00", 0, 24)       # Fila 3 (Altura 24)
-        elif hora < 12:
-            display.text("Prox: 12:00", 0, 24)       # Fila 3 (Altura 24)
         elif hora < 16:
             display.text("Prox: 16:00", 0, 24)       # Fila 3 (Altura 24)
         else:
-            display.text("Prox: 08:00", 0, 24) # Mañana siguiente
+            display.text("Prox: 00:00", 0, 24) # Mañana siguiente
             
         leds[dia_semana].value(0)
         buzzer.duty(0)
