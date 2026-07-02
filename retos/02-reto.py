@@ -16,7 +16,7 @@ print(f"{resultado}")
 
 registro_busqueda = {resultado}
 
-print(f"{registro_busqueda}")
+print(f"(registro_busqueda)")
 
 #Javiera Ojeda, Diana Dusseaux
 
