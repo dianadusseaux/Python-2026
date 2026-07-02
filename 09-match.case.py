@@ -15,8 +15,8 @@ match opcion:
         print(f"has elegido completo $")
     case"3":
         print(f"has elegido pizza $")
-    case_:
-        print(f"opcion no valida")
+    case"_":
+        print(f"opción no valida")
 #no se necesita finalizar
 
 mes = 4 #abril
@@ -32,6 +32,20 @@ match mes:
 
 #la "|" significa un o es decir si mes es 12 o 1 o 2 entonces escribir verano
 
+x = [1,2,3]
+match x:
+    case[a, b, c]:
+        print(f"Elementos de la lista: {a}, {b}, {c}")
+
+datos = {
+    "Nombre" : "",
+    "Edad" : ""
+}
+
+match datos:
+    case {"nombre": n, "edad": e}
+        print(f"Elementos de un diccionario {"nombre"}, {"edad"}")
+
 hora = 18
 match hora:
     case h if 0 <- h < 6:
@@ -46,5 +60,8 @@ match hora:
 #Ejemplo para saber si un numero es par o impar
 valor = 6
 match valor:
-    case x if x % 
+    case x if x % 2 == 0: #x tomo el valor de cualquier variable
+        print(f"{valor} es un número par")
+    case x if x % 2 != 0:
+        print(f"{valor} es un número impar")
 
