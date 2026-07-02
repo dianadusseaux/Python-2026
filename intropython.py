@@ -93,15 +93,15 @@ else:                 #else ---> sino ! se lee = sino entonces...
 
 estado = True
 while estado == True: #while es --> mientras
-   respuesta = str(input("usuario ¿desea agregar un estudiante al diccionario 'estudiantes'? (s/n): "))
-   if respuesta == "s":
+    respuesta = str(input("usuario ¿desea agregar un estudiante al diccionario 'estudiantes'? (s/n): "))
+    if respuesta == "s":
         nombre_estudiante = str(input("Ingrese el nombre del estudiante que quiere agregar: "))
         edad=input("Ingrese la edad del estudiante que indico antes: ")
-   elif respuesta == "n":
-       print("entendido, usted no quiere seguir. adios!")
-       estado = False
-   else:
-       print("la opcion indicada no es correcta, recuerde escribir o 's' para si o 'n' para no.")
+    elif respuesta == "n":
+        print("entendido, usted no quiere seguir. adios!")
+        estado = False
+    else:
+        print("la opcion indicada no es correcta, recuerde escribir o 's' para si o 'n' para no.")
 
 #Paso de pseint a Python
 
@@ -182,5 +182,27 @@ elif nombre == "Diana" or nacionalidad == "chilena":
 else: 
     print("El nombre no es 'Diana'")
 
+#match case
+#el case va indentado dentro del match
+
+#Funciones
+#def significa definir una función
+#se pueden poner varios parametros dentro de la función
+def saludar(nombre:str, edad:int):
+    print(f"hola{nombre}, tu edad es {edad} ")
+
+saludar(12, "Diana")
+
+def aprobar(nombre,curso,nota_final):
+    print(f"Hola {nombre}")
+    print(f"Tu curso es {curso}")
+    if nota_final >= 4.0:
+        print("Aprobado")
+    else:
+        print("Reprobado")
+
+aprobar("a",2,5)
+aprobar("b",3,5)
+aprobar("c",2,2)
 
 
