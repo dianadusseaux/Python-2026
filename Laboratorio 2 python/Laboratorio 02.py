@@ -20,10 +20,11 @@ print(f"El diccionario inicial es: {censo_2017}")
 #for i in censo_2017:
 
 #densidad poblacional = habitantes/superficie
-densidadl = float(round(404432 / 18429))
+densidadl = float(round((censo_2017["14"]["Habitantes"])/(censo_2017["14"]["Superficie"]),3))
 
 print(f"La densidad poblacional de la región de Los Rios es de: {densidadl}")
-densidadm = float(round(166533 / 1382291))
+
+densidadm = float(round((censo_2017["12"]["Habitantes"])/(censo_2017["12"]["Superficie"]),3))
 print(f"La densidad poblacional de la región de Magallanes es de: {densidadm}")
 
 #c) agregar capitales
@@ -62,3 +63,4 @@ while True:
         
 
 #f)Imprimir el diccionario en una tupla
+print(f"Los valores finales del diccionario son: {censo_2017.items()}")
